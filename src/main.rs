@@ -4,6 +4,7 @@ use dialoguer::{console::Term, theme::ColorfulTheme, Select};
 use std::str::FromStr;
 
 const DEFAULT_SOCKET_ADDRESS: &str = "0.0.0.0:8080";
+const DEFAULT_WEB_UI: &str = "chatbot-ui";
 const PROMPT_TEMPLATES: [&str; 20] = [
     "llama-2-chat",
     "mistral-instruct",
@@ -299,6 +300,25 @@ enum Commands {
             default_value = "0.0"
         )]
         frequency_penalty: f64,
+        #[arg(
+            long,
+            help = "Sets the url of Qdrant REST Service (e.g., http://0.0.0.0:6333)."
+        )]
+        qdrant_url: String,
+        #[arg(
+            long,
+            help = "Sets the collection name of Qdrant. Required for RAG.",
+            default_value = "default"
+        )]
+        qdrant_collection_name: String,
+        #[arg(long, help = "Max number of retrieved result.", default_value = "3")]
+        qdrant_limit: u64,
+        #[arg(
+            long,
+            help = "Minimal score threshold for the search result",
+            default_value = "0.0"
+        )]
+        qdrant_score_threshold: f64,
     },
 }
 
@@ -370,6 +390,10 @@ fn main() -> anyhow::Result<()> {
             repeat_penalty,
             presence_penalty,
             frequency_penalty,
+            qdrant_url,
+            qdrant_collection_name,
+            qdrant_limit,
+            qdrant_score_threshold,
         } => unimplemented!(),
     }
 

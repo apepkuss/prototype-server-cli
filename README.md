@@ -124,7 +124,7 @@ Options:
 ```bash
 $ wasmedge server-cli-2.wasm rag --help
 
-Usage: server-cli-2.wasm rag [OPTIONS]
+Usage: server-cli-2.wasm rag [OPTIONS] --qdrant-url <QDRANT_URL>
 
 Options:
   -m, --model-name <MODEL_NAME>
@@ -153,6 +153,14 @@ Options:
           Repeat alpha presence penalty. 0.0 = disabled. This is for chat model. [default: 0.0]
       --frequency-penalty <FREQUENCY_PENALTY>
           Repeat alpha frequency penalty. 0.0 = disabled. This is for chat model. [default: 0.0]
+      --qdrant-url <QDRANT_URL>
+          Sets the url of Qdrant REST Service (e.g., http://0.0.0.0:6333).
+      --qdrant-collection-name <QDRANT_COLLECTION_NAME>
+          Sets the collection name of Qdrant. Required for RAG. [default: default]
+      --qdrant-limit <QDRANT_LIMIT>
+          Max number of retrieved result. [default: 3]
+      --qdrant-score-threshold <QDRANT_SCORE_THRESHOLD>
+          Minimal score threshold for the search result [default: 0.0]
   -h, --help
           Print help
 ```
