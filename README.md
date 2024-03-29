@@ -64,47 +64,6 @@ Options:
           Print help
 ```
 
-
-## LLAVA Subcommand
-
-```bash
-$ wasmedge server-cli-2.wasm llava --help
-
-Usage: server-cli-2.wasm llava [OPTIONS] --model-name <MODEL_NAME> --projector-file <PROJECTOR>
-
-Options:
-  -m, --model-name <MODEL_NAME>
-          Sets the model name
-      --projector-file <PROJECTOR>
-          Path to the multimodal projector file
-  -a, --model-alias <MODEL_ALIAS>
-          Sets the alias of the model used by WasmEdge Runtime [default: default]
-  -c, --ctx-size <CTX_SIZE>
-          Sets the prompt context size [default: 512]
-  -p, --prompt-template <PROMPT_TEMPLATE>
-          Sets the prompt template
-  -r, --reverse-prompt <REVERSE_PROMPT>
-          Halt generation at PROMPT, return control.
-  -n, --n-predict <N_PREDICT>
-          Number of tokens to predict [default: 1024]
-  -g, --n-gpu-layers <N_GPU_LAYERS>
-          Number of layers to run on the GPU [default: 100]
-  -b, --batch-size <BATCH_SIZE>
-          Batch size for prompt processing [default: 512]
-      --temp <TEMPERATURE>
-          Temperature for sampling [default: 0.8]
-      --top-p <TOP_P>
-          An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. 1.0 = disabled. [default: 0.9]
-      --repeat-penalty <REPEAT_PENALTY>
-          Penalize repeat sequence of tokens [default: 1.1]
-      --presence-penalty <PRESENCE_PENALTY>
-          Repeat alpha presence penalty. 0.0 = disabled [default: 0.0]
-      --frequency-penalty <FREQUENCY_PENALTY>
-          Repeat alpha frequency penalty. 0.0 = disabled [default: 0.0]
-  -h, --help
-          Print help
-```
-
 ## Embedding Subcommand
 
 ```bash
@@ -161,6 +120,46 @@ Options:
           Max number of retrieved result. [default: 3]
       --qdrant-score-threshold <QDRANT_SCORE_THRESHOLD>
           Minimal score threshold for the search result [default: 0.0]
+  -h, --help
+          Print help
+```
+
+## LLAVA Subcommand
+
+```bash
+$ wasmedge server-cli-2.wasm llava --help
+
+Usage: server-cli-2.wasm llava [OPTIONS] --model-name <MODEL_NAME> --projector-file <PROJECTOR>
+
+Options:
+  -m, --model-name <MODEL_NAME>
+          Sets the model name
+      --projector-file <PROJECTOR>
+          Path to the multimodal projector file
+  -a, --model-alias <MODEL_ALIAS>
+          Sets the alias of the model used by WasmEdge Runtime [default: default]
+  -c, --ctx-size <CTX_SIZE>
+          Sets the prompt context size [default: 512]
+  -p, --prompt-template <PROMPT_TEMPLATE>
+          Sets the prompt template
+  -r, --reverse-prompt <REVERSE_PROMPT>
+          Halt generation at PROMPT, return control.
+  -n, --n-predict <N_PREDICT>
+          Number of tokens to predict [default: 1024]
+  -g, --n-gpu-layers <N_GPU_LAYERS>
+          Number of layers to run on the GPU [default: 100]
+  -b, --batch-size <BATCH_SIZE>
+          Batch size for prompt processing [default: 512]
+      --temp <TEMPERATURE>
+          Temperature for sampling [default: 0.8]
+      --top-p <TOP_P>
+          An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. 1.0 = disabled. [default: 0.9]
+      --repeat-penalty <REPEAT_PENALTY>
+          Penalize repeat sequence of tokens [default: 1.1]
+      --presence-penalty <PRESENCE_PENALTY>
+          Repeat alpha presence penalty. 0.0 = disabled [default: 0.0]
+      --frequency-penalty <FREQUENCY_PENALTY>
+          Repeat alpha frequency penalty. 0.0 = disabled [default: 0.0]
   -h, --help
           Print help
 ```
